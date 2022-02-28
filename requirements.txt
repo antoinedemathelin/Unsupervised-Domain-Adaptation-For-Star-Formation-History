@@ -1,6 +1,7 @@
-tensorflow>=2.0
-scikit-learn
-numpy
-pandas
+tensorflow==2.6.0
+adapt==0.3.0
+scikit-learn==1.0.2
+tslearn==0.5.2
 matplotlib
-adapt
+seaborn
+pandas
