@@ -24,8 +24,8 @@ As galaxies evolve over billions of years, it is impossible to completely captur
 
 The experiments can be run with the ``run_experiments.ipynb`` notebook. Figure 2 can be reproduced with the ``kliep_weights_visualization.ipynb`` notebook.
 
-Our training and test data sets consist of SEDs from three state of the art cosmological galaxy formation simulations **SIMBA**, **EAGLE** and **IllustrisTNG**. Input consists of flux densities in 20 filters, and output consists of SFH (time series) in 29 bins from t= 0 to t= 13 8 billion years ago We train on any two simulations and test on the third one This is a necessary first step in developing a technique that can ultimately be applied to observational data.
-1. We apply KLIEP, an instance based method that reweights the sources in order to minimize the KL divergence between any two domains
+Our training and test data sets consist of SEDs from three state of the art cosmological galaxy formation simulations **SIMBA** [1], **EAGLE** [2] and **IllustrisTNG** [3] (The three datasets can be found in the ``datasets`` folder). Input consists of flux densities in 20 filters, and output consists of SFH (time series) in 29 bins from t= 0 to t= 13 8 billion years ago We train on any two simulations and test on the third one This is a necessary first step in developing a technique that can ultimately be applied to observational data.
+1. We apply KLIEP [4], an instance based method that reweights the sources in order to minimize the KL divergence between any two domains
 2. We normalize each SFH time series vector by its sum, and apply kernelPCA to reduce the dimensionality of the normalized SFH time series vectors from 29 to 3
 3. We fit two NNs on the source data using the KLIEP derived importance weights one network to predict the 3 kPCA components, the other to predict SFH_sum.
 
@@ -61,4 +61,16 @@ The results can be computed with the ``results.ipynb`` notebook.
     <figcaption> <b>Figure 3</b>: <i>Global SFH predictions for the <b>SIMBA</b> experiments. The curves correspond to the sums over all predicted SFH for different domain adaptation methods</i></figcaption>
   </figure>
 </p>
+
+
+## References
+- [1] Davé R. et al. 2019. SIMBA: Cosmological simulations with black hole growth and feedback.
+*Monthly Notices of the Royal Astronomical Society*. 486 2 2827 2849. [paper](https://arxiv.org/abs/1901.10203)
+- [2] Schaye J. et al. 2015. The EAGLE project simulating the evolution and assembly of galaxies and
+their environments. *Monthly Notices of the Royal Astronomical Society*. 446 1 521 554.
+- [3] Vogelsberger M. et al. 2014. Introducing the Illustris Project simulating the coevolution of dark
+and visible matter in the Universe. *Monthly Notices of the Royal Astronomical Society*. 444 2 1518 1547
+- [4] Sugiyama, M. et al. 2007. Direct Importance Estimation with Model Selection and Its Application to
+Covariate Shift Adaptation. *In Proceedings of the 20 th International Conference on Neural Information
+Processing Systems, NIPS’ 07*. 1433 1440 Red Hook, NY, USA Curran Associates Inc.
 
