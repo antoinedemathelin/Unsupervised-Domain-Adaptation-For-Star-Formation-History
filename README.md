@@ -24,7 +24,7 @@ As galaxies evolve over billions of years, it is impossible to completely captur
 
 The experiments can be run with the ``run_experiments.ipynb`` notebook. Figure 2 can be reproduced with the ``kliep_weights_visualization.ipynb`` notebook.
 
-Our training and test data sets consist of SEDs from three state of the art cosmological galaxy formation simulations SIMBA, EAGLE and IllustrisTNG. Input consists of flux densities in 20 filters, and output consists of SFH (time series) in 29 bins from t= 0 to t= 13 8 billion years ago We train on any two simulations and test on the third one This is a necessary first step in developing a technique that can ultimately be applied to observational data.
+Our training and test data sets consist of SEDs from three state of the art cosmological galaxy formation simulations **SIMBA**, **EAGLE** and **IllustrisTNG**. Input consists of flux densities in 20 filters, and output consists of SFH (time series) in 29 bins from t= 0 to t= 13 8 billion years ago We train on any two simulations and test on the third one This is a necessary first step in developing a technique that can ultimately be applied to observational data.
 1. We apply KLIEP, an instance based method that reweights the sources in order to minimize the KL divergence between any two domains
 2. We normalize each SFH time series vector by its sum, and apply kernelPCA to reduce the dimensionality of the normalized SFH time series vectors from 29 to 3
 3. We fit two NNs on the source data using the KLIEP derived importance weights one network to predict the 3 kPCA components, the other to predict SFH_sum.
@@ -43,8 +43,22 @@ The results can be computed with the ``results.ipynb`` notebook.
 
 <p align="center">
   <figure>
-    <img src="images/results_tng_v2.png" alt="tng">
-    <figcaption> <b>Figure 3</b>: <i>Global SFH predictions for the IllustrisTNG experiments. The curves correspond to the sums over all predicted SFH for different domain adaptation methods</i></figcaption>
+    <img src="images/results_tng.png" alt="tng">
+    <figcaption> <b>Figure 3</b>: <i>Global SFH predictions for the <b>IllustrisTNG</b> experiments. The curves correspond to the sums over all predicted SFH for different domain adaptation methods</i></figcaption>
+  </figure>
+</p>
+
+<p align="center">
+  <figure>
+    <img src="images/results_eagle.png" alt="tng">
+    <figcaption> <b>Figure 3</b>: <i>Global SFH predictions for the <b>EAGLE</b> experiments. The curves correspond to the sums over all predicted SFH for different domain adaptation methods</i></figcaption>
+  </figure>
+</p>
+
+<p align="center">
+  <figure>
+    <img src="images/results_simba.png" alt="tng">
+    <figcaption> <b>Figure 3</b>: <i>Global SFH predictions for the <b>SIMBA</b> experiments. The curves correspond to the sums over all predicted SFH for different domain adaptation methods</i></figcaption>
   </figure>
 </p>
 
