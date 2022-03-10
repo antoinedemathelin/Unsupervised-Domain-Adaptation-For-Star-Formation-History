@@ -24,8 +24,8 @@ As galaxies evolve over billions of years, it is impossible to completely captur
 
 The experiments can be run with the ``run_experiments.ipynb`` notebook. Figure 2 can be reproduced with the ``kliep_weights_visualization.ipynb`` notebook.
 
-Our training and test data sets consist of SEDs from three state of the art cosmological galaxy formation simulations **SIMBA** [1], **EAGLE** [2] and **IllustrisTNG** [3] (The three datasets can be found in the ``datasets`` folder). Input consists of flux densities in 20 filters, and output consists of SFH (time series) in 29 bins from t= 0 to t= 13 8 billion years ago We train on any two simulations and test on the third one This is a necessary first step in developing a technique that can ultimately be applied to observational data.
-1. We apply KLIEP [4], an instance based method that reweights the sources in order to minimize the KL divergence between any two domains
+Our training and test data sets consist of SEDs from three state of the art cosmological galaxy formation simulations **SIMBA** [1](#references), **EAGLE** [2](#references) and **IllustrisTNG** [3](#references) (The three datasets can be found in the ``datasets`` folder). Input consists of flux densities in 20 filters, and output consists of SFH (time series) in 29 bins from t= 0 to t= 13 8 billion years ago We train on any two simulations and test on the third one This is a necessary first step in developing a technique that can ultimately be applied to observational data.
+1. We apply KLIEP [4](#references), an instance based method that reweights the sources in order to minimize the KL divergence between any two domains
 2. We normalize each SFH time series vector by its sum, and apply kernelPCA to reduce the dimensionality of the normalized SFH time series vectors from 29 to 3
 3. We fit two NNs on the source data using the KLIEP derived importance weights one network to predict the 3 kPCA components, the other to predict SFH_sum.
 
